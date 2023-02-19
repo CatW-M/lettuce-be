@@ -1,13 +1,24 @@
-import Image from 'next/image'
+
 import { Inter } from '@next/font/google'
-import styles from './page.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <h1 className='text-blue-400 text-7xl'>Lettuce Be! Save food, save time, save money!</h1>
+    <main className="bg-gray-100 min-h-screen w-screen">
+      <main className='max-w-screen-2xl m-auto bg-white text-grey-dark'>
+        {/* NAVBAR */}
+      <nav className='bg-white p-2 flex text-gray-700 justify-between'>
+        <a href="" className='font-bold text-2xl'>
+          LettuceBe
+        </a>
+        <div className='flex'>
+          <button className='bg-gray-400 text-white border p-2 rounded mr-3'>Sign Up</button>
+          <button className='border p-1 px-4 rounded '>Sign In</button>
+        </div>  
+      </nav>
+        {/* NAVBAR */}
+        </main>
     </main>
   )
 }
