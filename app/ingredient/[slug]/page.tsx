@@ -26,6 +26,7 @@ const fetchIngredientBySlug = async (slug: string): Promise<Ingredient> => {
     select: {
       id: true,
       name: true,
+      main_image: true,
       images: true,
       description: true,
       slug: true,
