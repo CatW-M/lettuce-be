@@ -37,7 +37,7 @@ const fetchIngredientBySlug = async (slug: string): Promise<Ingredient> => {
   });
 
   if (!ingredient) {
-    notFound();
+    notFound()
   }
 
   return ingredient;
