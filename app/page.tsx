@@ -1,24 +1,47 @@
 
 
 import { Inter } from '@next/font/google'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import NavBar from './components/NavBar'
 import IngredientCard from './components/IngredientCard'
 import Header from './components/Header'
+import { PrismaClient, Category } from '@prisma/client'
+
+export interface IngredientCardType {
+  id: number;
+  name: string;
+  main_image: string;
+  category: Category;
+  slug: string;
+}
 
 const inter = Inter({ subsets: ['latin'] })
+const prisma = new PrismaClient();
 
-export default function Home() {
+const fetchIngredients = async(): Promise<IngredientCardType[]> => {
+  const ingredients = await prisma.ingredient.findMany({
+    select: {
+      id: true,
+      name: true,
+      main_image: true,
+      category: true,
+      slug: true
+    }
+  });
+
+  return ingredients
+}
+
+export default async function Home() {
+  const ingredients = await fetchIngredients()
+  console.log({ ingredients })
 
   return (
         <main>
           <Header />
           <div className="py-3 px-36 mt-10 flex flex-wrap">
-          <IngredientCard />
+          {ingredients.map(ingredient => (
+            <IngredientCard ingredient={ ingredient } />
+          ))}
           </div>
         </main>
   )
 }
-
-//Supabase: RUy&fFsL4Qju

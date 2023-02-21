@@ -1,10 +1,10 @@
-import Header from "../components/Header";
-import NavBar from "../components/NavBar";
+
+
 
 export default function Tracker () {
   return (
       <main>
-       <Header />
+      
        <h1 className='font-bold text-2xl mb-2 text-center'>Track Your Ingredients</h1>
         {/* CARDS */}
         <div className="py-3 px-36 mt-10 flex flex-wrap">

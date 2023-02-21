@@ -16,10 +16,14 @@ model Ingredient {
   main_image  String
   images      String[]
   description String
+  room_temp_time Float?
+  refrigerated_time Float?
+  frozen_time Float?
   slug        String   @unique
   compost     Boolean  @default(true)
   category_id Int
   category Category @relation(fields: [category_id], references: [id])
+  recipes Recipe_Ingredient[]
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 }
@@ -31,6 +35,38 @@ model Category {
   description String
   slug        String   @unique
   ingredients Ingredient[]
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model Recipe {
+  id          Int      @id @default(autoincrement())
+  name        String
+  main_image  String
+  description String
+  cuisine_id  Int
+  cuisine Cuisine @relation(fields: [cuisine_id], references: [id])
+  ingredients Recipe_Ingredient[]
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model Cuisine {
+  id          Int      @id @default(autoincrement())
+  name        String
+  recipes     Recipe[]
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model Recipe_Ingredient {
+  id         Int      @id @default(autoincrement())
+  recipe_id  Int
+  recipe Recipe @relation(fields: [recipe_id], references: [id])
+  ingredient_id  Int
+  ingredient Ingredient @relation(fields: [ingredient_id], references: [id])
+  amount      String
+  units       String
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 }
@@ -51,5 +87,6 @@ enum CATNAME {
   BEVERAGES
   CANNED
   CEREALS
+  CONDIMENTS
   OTHER
 }
