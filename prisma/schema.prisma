@@ -78,7 +78,7 @@ model User {
   last_name    String
   country      String
   phone        String
-  email        String
+  email        String @unique
   password     String
   dietary_pref DIET[]
   vault        User_Ingredient[]
