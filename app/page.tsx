@@ -31,15 +31,13 @@ const fetchIngredients = async(): Promise<IngredientCardType[]> => {
 }
 
 export default async function Home() {
-  const ingredients = await fetchIngredients()
-  console.log({ ingredients })
-
+  const ingredients = await fetchIngredients();
   return (
         <main>
           <Header />
           <div className="py-3 px-36 mt-10 flex flex-wrap">
           {ingredients.map(ingredient => (
-            <IngredientCard ingredient={ ingredient } />
+            <IngredientCard ingredient={ ingredient } key={ingredient.id}/>
           ))}
           </div>
         </main>
