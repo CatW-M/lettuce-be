@@ -95,3 +95,4 @@ export default function AuthContext({
     </AuthenticationContext.Provider>
   );
 }
+

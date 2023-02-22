@@ -20,7 +20,7 @@ const style = {
   p: 4,
 };
 
-export default function LoginModal({ isSignin }: { isSignin: boolean }) {
+export default function AuthModal({ isSignin }: { isSignin: boolean }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -37,7 +37,7 @@ export default function LoginModal({ isSignin }: { isSignin: boolean }) {
       [e.target.name]: e.target.value,
     });
   };
-//two way binding
+
   const [inputs, setInputs] = useState({
     firstName: "",
     lastName: "",
