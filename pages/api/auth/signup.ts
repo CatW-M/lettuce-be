@@ -28,7 +28,7 @@ export default async function handler(
           min: 1,
           max: 20,
         }),
-        errorMessage: "Last name is invalid",
+        errorMessage: "First name is invalid",
       },
       {
         valid: validator.isEmail(email),
