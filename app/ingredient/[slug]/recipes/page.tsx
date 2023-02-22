@@ -21,7 +21,7 @@ const fetchIngredientRecipe = async (slug: string) => {
   return ingredient.recipes;
 };
 
-export default async function IngredientMenu({
+export default async function IngredientRecipe({
   params,
 }: {
   params: { slug: string };
@@ -32,6 +32,9 @@ export default async function IngredientMenu({
     <>
       <div className="bg-white w-[100%] rounded p-3 shadow">
         <IngredientNavBar slug={params.slug} />
+        <h1 className="text-5xl">Recipes for {params.slug} </h1>
+        {/*RECIPECARD */}
+        <div className="bg-blue-300 m-4 shadow rounded w-[75px]">Recipe Cards Here</div>
       </div>
     </>
   );
