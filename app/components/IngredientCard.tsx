@@ -7,7 +7,7 @@ interface Props {
 
 export default function IngredientCard({ingredient}: Props) {
   return (
-    <div className="w-64 h-72 m-3 ronded overflow-hidden border cursor-pointer">
+    <div className="text-blue-800 w-64 h-72 m-3 ronded overflow-hidden border cursor-pointer">
       <Link href={`/ingredient/${ingredient.slug}`}>
       <img src={ingredient.main_image}
         className='w-full h-36' />
