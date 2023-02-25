@@ -80,6 +80,7 @@ model User {
   phone        String
   email        String            @unique
   password     String
+  image        String?
   dietary_pref DIET[]
   vault        User_Ingredient[]
   created_at   DateTime          @default(now())
