@@ -8,7 +8,7 @@ export default function SearchBar() {
   const [ingredient, setIngredient] = useState("")
   return (
     <div className="text-left text-lg py-3 m-auto flex justify-center">
-      <input className="rounded mr-3 p-2 w-[450px]"
+      <input className="bg-white-800 rounded mr-3 p-2 w-[450px]"
       type="text"
       placeholder="Search for Ingredient - Example: Bananas"
       value={ingredient}
